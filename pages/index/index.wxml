@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="container">
+  <block wx:for="{{ files }}" wx:key="src">
+    <view class="weui-uploader__file">
+      <view style="text-align: center; position: relative;">
+        <image class="weui-uploader__img" src="{{ item.src }}" mode="aspectFill" bindtap="previewImage" id="{{item.src}}" />
+        <view class="custom-uploader__del" bindtap="removeImage" id="{{ item.src }}">
+          <text wx:if="{{ !item.uploading }}">删除</text>
+          <text wx:if="{{ item.uploading }}">{{ item.progress }} %</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class="weui-uploader__input-box">
+    <view class="weui-uploader__input" bindtap="chooseImage"></view>
+  </view>
+</view>
